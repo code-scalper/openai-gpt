@@ -10,7 +10,7 @@ export default function Home() {
       className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
     >
       hello
-      <Link href="/gpt">Go to GPT</Link>
+      <Link href="/gptTester">Go to GPT</Link>
     </main>
   );
 }
