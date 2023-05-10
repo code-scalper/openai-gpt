@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState, useMemo, useContext } from "react";
+import classNames from "classnames";
 import GptContext, { GptProvider } from "./GptContext";
-import ContentViewer from "@/components/Viewer/ContentViewer";
+import ContentViewer from "@/components/viewer/ContentViewer";
 import GptInfo from "./GptInfo";
 import GptModels from "./GptModels";
 import ChatCompletion from "./ChatCompletion";
-import classNames from "classnames";
+import GptImages from "./GptImages";
+import GptImageEdit from "./GptImageEdit";
+
 const GptTester = () => {
   const { setModel } = useContext(GptContext);
   const mounted = useRef(false);
@@ -33,6 +36,8 @@ const GptTester = () => {
   const DISPLAYS = [
     { label: "GPT Models", key: "models", component: GptModels },
     { label: "Chat Completion", key: "completion", component: ChatCompletion },
+    { label: "Image generation", key: "image", component: GptImages },
+    { label: "Image editing", key: "image-edit", component: GptImageEdit },
   ];
 
   const getViewerClass = (open: boolean) => {

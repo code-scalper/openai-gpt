@@ -4,7 +4,7 @@ import GptContext from "./GptContext";
 const ChatCompletion = () => {
   const { model } = useContext(GptContext);
   const typing: any = useRef(null);
-  const [answer, setAnswer] = useState<string>("waiting to answer...");
+  const [answer, setAnswer] = useState<string>("waiting for answer...");
   const [isPending, setIsPending] = useState<boolean>(false);
   const handleEnter = (e: any) => {
     if (e.keyCode === 13) chatCompletion();
@@ -16,7 +16,7 @@ const ChatCompletion = () => {
     setIsPending(true);
     setAnswer("");
     const res = await $_lib_fetchData("/chat/completions", "post", {
-      model,
+      model: "gpt-3.5-turbo",
       messages: [{ role: "user", content: text }],
       temperature: 0.7,
     });
